@@ -40,14 +40,14 @@ We suggest doing the following from your terminal/command line. Once you've fork
 
 ```
 $ git clone <url>
-$ cd takehome-assignment-f20
+$ cd takehome-assignment-f21
 ```
 
 _Note: if you get an error after running the `git` command, make sure to install git [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)._
 
 Now open a second terminal and navigate to this cloned repository.
 In one of the terminals, type `cd backend` then follow the [backend instructions](backend/README.md).
-In the other, type `cd vue-frontend` then follow the [frontend instructions](frontend/README.md).
+In the other, type `cd vue-frontend` then follow the [frontend instructions](vue-frontend/README.md).
 
 [Postman](https://www.getpostman.com/) will be useful for testing your backend as you go. This is an application that can send various types of HTTP requests to specified endpoints. You can use Postman or another tool of your choice.
 
