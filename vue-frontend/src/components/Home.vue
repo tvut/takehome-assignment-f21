@@ -3,6 +3,11 @@
     <!-- PART 1: Pass in a "complete" prop here -->
     <Instructions complete="true" />
     <!-- PART 4: Modify the Show component to accept all of these props -->
+    <div>
+      <h5>Add Show</h5>
+      <input v-model="name" type="text" placeholder="Name"/>
+      <button v-on:click="addShow(name)">Add Show</button>
+    </div>
     <Show
       v-for="show in shows"
       :key="show.id"
@@ -22,6 +27,10 @@ export default {
     Instructions,
     Show
   },
+  methods: {
+    addShow: function(namearg){
+      this.shows.push({id:this.shows.length+1, name:namearg, episodes_seen:0})
+  }},
   data() {
     return {
       shows: [

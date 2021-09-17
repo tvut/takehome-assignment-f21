@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Counter is currently at {{count}}</p>
+    <p>You have watched {{count}} episodes.</p>
     <button v-on:click="count += 1">Increase Count</button>
     <button v-on:click="count -= 1">Decrease Count</button>
   </div>
