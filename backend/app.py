@@ -53,6 +53,13 @@ def mirror(name):
 
 @app.route("/shows", methods=['GET'])
 def get_all_shows():
+    #add shows query
+    if 'minEpisodes' in request.args:
+        newDict = []
+        for entry in db.get('shows'):
+            if int(entry['episodes_seen']) >= int(request.args.get('minEpisodes')):
+                newDict.append(entry)
+        return create_response({"shows": newDict})
     return create_response({"shows": db.get('shows')})
 
 @app.route("/shows/<id>", methods=['DELETE'])
@@ -81,14 +88,6 @@ def add_single_show():
     }
     db.create('shows', payload)
     return create_response({"shows": db.getById('shows', int(len(db.get('shows'))))}, 201)
-
-@app.route("/shows/<id>", methods=['PUT'])
-def update_single_show(id):
-    if db.getById('shows', int(id)) is None:
-        return create_response(status=404, message="No show with this id exists")
-    return str(db.updateById('shows', int(id), request.json))
-    return create_response({"shows": db.getById('shows', int(id))}, 201)
-
 
 """
 ~~~~~~~~~~~~ END API ~~~~~~~~~~~~
